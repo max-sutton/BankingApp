@@ -1,0 +1,56 @@
+.card {
+    padding: 10px;
+    background-color: #D6CDA4;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.container {
+    padding: 15px;
+}
+
+.flex-container {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+}
+
+.flex-child {
+    margin: auto;
+}
+
+.flex-child:first-child {
+    margin-right: 20px;
+}
+
+label {
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    border: 2px solid black;
+    width: 100px;
+}
+
+table.table-bordered {
+    background-color: #1C6758;
+    padding: 4px;
+}
+
+table.table-bordered>thead>tr>th {
+    border: 2px solid black;
+    color: #EEF2E6;
+    font-size: 25px;
+}
+
+table.table-bordered>tbody>tr>td {
+    background-color: #EEF2E6;
+    border: 2px solid black;
+}
+
+.color {
+    color: #C41E3A;
+}

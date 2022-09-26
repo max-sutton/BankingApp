@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { StorageService } from './_services/storage.service';
 import { AuthService } from './_services/auth.service';
+import { Router } from '@angular/router'
+import { ThisReceiver } from '@angular/compiler';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +15,7 @@ export class AppComponent {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
-  constructor(private storageService: StorageService, private authService: AuthService) { }
+  constructor(private storageService: StorageService, private authService: AuthService, private router : Router) { }
   ngOnInit(): void {
     this.isLoggedIn = this.storageService.isLoggedIn();
     if (this.isLoggedIn) {
@@ -29,6 +31,10 @@ export class AppComponent {
       next: res => {
         console.log(res);
         this.storageService.clean();
+        this.router.navigate(['/login'])
+          .then(() => { 
+        window.location.reload();
+    })
       },
       error: err => {
         console.log(err);

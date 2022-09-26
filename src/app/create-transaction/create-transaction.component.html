@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="col-md-10 col-centered">
+    <div class="card bg-light">
+      <div>
+        <h1> Create New Transaction </h1>
+      </div>
+      <div>
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group bg-light">
+            <label for="amount">Amount: </label>
+            <input type="number" class="form-control" name="amount" [(ngModel)]="form.amount" required amount
+              #amount="ngModel" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && amount.errors }">
+            <div class="invalid-feedback" *ngIf="amount.errors && f.submitted">
+              <div *ngIf="amount.errors['required']">Amount is required</div>
+            </div>
+          </div>
+          <div class="form-group bg-light">
+            <label for="description">Description: </label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="form.description" required
+              description #description="ngModel" class="form-control"
+              [ngClass]="{ 'is-invalid': f.submitted && description.errors }">
+            <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
+              <div *ngIf="description.errors['required']">Description is required</div>
+            </div>
+          </div>
+          <div class="form-group bg-light">
+            <label for="transtype">Transaction Type:</label>
+            <select list="transtype" class="form-control" name="transtype" [(ngModel)]="form.transtype" required
+              transtype #transtype="ngModel" class="form-control">
+              <option value="true">Debit</option>
+              <option value="false">Credit</option>
+            </select>
+          </div>
+          <div class="form-group bg-light">
+            <label for="accountNumber">Account Number: </label>
+            <input type="text" class="form-control" name="accountNumber" [(ngModel)]="form.accountNumber" required
+              accountNumber #accountNumber="ngModel" class="form-control" pattern=".{8,8}"
+              [ngClass]="{ 'is-invalid': f.submitted && accountNumber.errors }" />
+            <div class="invalid-feedback" *ngIf="accountNumber.errors && f.submitted">
+              <div *ngIf="accountNumber.errors['required']">Account Number is required</div>
+              <div *ngIf="accountNumber.errors['pattern']">Number must be exactly 8 characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">
+              Create
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

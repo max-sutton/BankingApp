@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="col-md-7 col-centered">
+    <div class="card bg-light">
+      <div>
+        <h1> Create New Account </h1>
+      </div>
+      <div>
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group bg-light">
+            <label for="accountNumber">Account Number: </label>
+            <input type="text" class="form-control" name="accountNumber" [(ngModel)]="form.accountNumber" required
+              accountNumber #accountNumber="ngModel" class="form-control" pattern=".{8,8}"
+              [ngClass]="{ 'is-invalid': f.submitted && accountNumber.errors }" />
+            <div class="invalid-feedback" *ngIf="accountNumber.errors && f.submitted">
+              <div *ngIf="accountNumber.errors['required']">Account Number is required</div>
+              <div *ngIf="accountNumber.errors['pattern']">Number must be exactly 8 characters</div>
+            </div>
+          </div>
+          <div class="form-group bg-light">
+            <label for="description">Description: </label>
+            <select list="descriptions" class="form-control" name="description" [(ngModel)]="form.description" required
+              description #description="ngModel" class="form-control">
+              <option value="Personal">Personal</option>
+              <option value="Business">Business</option>
+            </select>
+          </div>
+          <div class="form-group bg-light">
+            <label for="balance">Balance: </label>
+            <input type="text" class="form-control" name="balance" [(ngModel)]="form.balance" required balance
+              #balance="ngModel" [ngClass]="{ 'is-invalid': f.submitted && balance.errors }" />
+            <div class="invalid-feedback" *ngIf="balance.errors && f.submitted">
+              <div *ngIf="balance.errors['required']">Balance is required</div>
+            </div>
+          </div>
+          <div class="form-group bg-light">
+            <label for="userId">Associated UserId: </label>
+            <input type="text" class="form-control" name="userId" [(ngModel)]="form.userId" required userId
+              #userId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userId.errors }" />
+            <div class="invalid-feedback" *ngIf="userId.errors && f.submitted">
+              <div *ngIf="userId.errors['required']">Valid UserId is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">
+              Create
+            </button>
+          </div>
+          <div class="alert alert-warning" *ngIf="f.submitted && isCreateTransactionFailed">
+            Transaction Creation Failed!<br />{{ errorMessage }}
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Transaction Created
+    </div>
+  </div>
+</div>

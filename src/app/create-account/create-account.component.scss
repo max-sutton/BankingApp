@@ -46,3 +46,18 @@ p{
     text-align :center;
     margin : 20px;
 }
+
+.flex-container {
+    display: flex;
+    margin-top:15px;
+    margin-bottom:20px;
+
+}
+
+.flex-child {
+    margin:auto;
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 
