@@ -1,0 +1,63 @@
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <div class="card">
+    <h1>Accounts</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Account Number</th>
+          <th scope="col">Tag</th>
+          <th scope="col">Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts">
+          <td><a [routerLink]="['/accountinfo', account.accountNumber]">{{account.accountNumber}}</a></td>
+          <td>{{account.description}}</td>
+          <td>${{account.balance | number : '1.2-2'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h1>Master Transaction Record</h1>
+    <div class="flex-container">
+      <div class="flex-child">
+        <label>Start: </label>
+        <input [(ngModel)]="selectedStartDate" type="date">
+      </div>
+      <div class="flex-child">
+        <label>End: </label>
+        <input [(ngModel)]="selectedEndDate" type="date">
+      </div>
+      <div class="flex-child">
+        <button class="btn btn-secondary" type="submit" (click)="submit()">Filter</button>
+      </div>
+      <div>
+        <button class="btn btn-secondary" type="submit" (click)="back()">Clear</button>
+      </div>
+    </div>
+    <table id="masterRecord" class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Amount</th>
+          <th scope="col">Description</th>
+          <th scope="col">Date</th>
+          <th scope="col">Account Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td [ngClass]="{'color': (transaction.amount < 0)}">${{transaction.amount | number : '1.2-2'}}</td>
+          <td>{{transaction.description}}</td>
+          <td>{{transaction.date | date}}</td>
+          <td>{{transaction.accountNumber }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

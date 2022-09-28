@@ -1,0 +1,69 @@
+.card {
+    margin-top: 10px;
+    border-radius: 15px;
+    border: solid #EEF2E6 9px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+
+img {
+    height : 250px
+}
+
+.bg {
+    position: absolute;
+    top:58px;
+    left:0;
+    height: 700px;
+    width: 100%;
+    padding: 0;
+    margin:0;
+}
+
+.centered {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+h1{
+    color:white;
+    font-size: 60px;
+}
+.circle {
+    border-radius: 100%;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    border: 3px solid black;
+   }
+
+.card-title{
+    text-align: center;
+}
+.headcard{
+    padding-top: 15px;
+    border: solid black 2px;
+    border-radius: 10px;
+}
+.offeringstxt{
+
+    text-align: center;
+    margin-top: 730px;
+    color: white;
+    
+
+}

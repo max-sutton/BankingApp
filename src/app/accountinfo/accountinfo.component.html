@@ -1,0 +1,37 @@
+<div class="card">
+  <h1>Account : {{accounts}} Transaction Record</h1>
+  <div class="flex-container">
+    <div class="flex-child">
+      <label>Start: </label>
+      <input [(ngModel)]="selectedStartDate" type="date">
+    </div>
+    <div class="flex-child">
+      <label>End: </label>
+      <input [(ngModel)]="selectedEndDate" type="date">
+    </div>
+    <div class="flex-child">
+      <button class="btn btn-secondary" type="submit" (click)="submit()">Filter</button>
+    </div>
+    <div>
+      <button class="btn btn-secondary" type="submit" (click)="back()">Clear</button>
+    </div>
+  </div>
+  <table id="masterRecord" class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{transaction.id}}</td>
+        <td [ngClass]="{'color': (transaction.amount < 0)}">${{transaction.amount | number : '1.2-2'}}</td>
+        <td>{{transaction.description}}</td>
+        <td>{{transaction.date | date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

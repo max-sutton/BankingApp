@@ -1,0 +1,68 @@
+.card {
+    padding: 10px;
+    background-color: #D6CDA4;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.container {
+    padding: 15px;
+}
+
+.flex-container {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+}
+
+.flex-child {
+    margin: auto;
+}
+
+.flex-child:first-child {
+    margin-right: 20px;
+}
+
+label {
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    border: 2px solid black;
+    width: 100px;
+}
+
+table{
+    border-collapse:separate;
+    border-radius:6px;
+}
+
+table.table-bordered {
+    background-color: #1C6758;
+    padding: 4px;
+    border:none
+}
+
+table.table-bordered>thead>tr>th {
+
+    color: #EEF2E6;
+    font-size: 25px;
+    border:none
+}
+
+table.table-bordered>tbody>tr>td {
+    background-color: #EEF2E6;
+
+}
+
+.color {
+    color: #C41E3A;
+}
+
+a{
+    color: #3D8361;
+    font-weight: bold;
+}
