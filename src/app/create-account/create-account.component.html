@@ -20,8 +20,19 @@
             <label for="description">Description: </label>
             <select list="descriptions" class="form-control" name="description" [(ngModel)]="form.description" required
               description #description="ngModel" class="form-control">
-              <option value="Personal">Personal</option>
-              <option value="Business">Business</option>
+              <optgroup label="Personal">
+              <option value="Personal Account">Personal Checking</option>
+              <option value="Personal Savings">Personal Savings</option>
+              <option value="Green Iron Checking">Green Iron Checking</option>
+              <option value="CD">CD</option>
+              <option value="Personal Loan">Personal Loan</option>
+              <option value="Residential Loan">Residential Loan</option>
+              <option value="Personal LOC">Personal LOC</option>
+              </optgroup>
+              <optgroup label="Business">
+              <option value="Business Account">Business Checking</option>
+              <option value="Loan">Loan</option>
+              </optgroup>
             </select>
           </div>
           <div class="form-group bg-light">
