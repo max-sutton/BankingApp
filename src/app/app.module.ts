@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,8 @@ import { CreateTransactionComponent } from './create-transaction/create-transact
 import { LandingComponent } from './landing/landing.component';
 import { PersonalComponent } from './personal/personal.component';
 import { BusinessComponent } from './business/business.component';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { BusinessComponent } from './business/business.component';
     BusinessComponent,
   ],
   imports: [
+    AccordionModule.forRoot(),
+    TabsModule.forRoot(),
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
